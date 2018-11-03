@@ -135,9 +135,9 @@ vector<string>zscoreNorm(vector <ll> v){
 
 
 int main(){
-	CSVReader cr("/home/hduser/Music/Untitled Folder/DM/2/input.csv");
-	CSVWriter wr1("/home/hduser/Music/Untitled Folder/DM/2/min_max_output.csv");
-	CSVWriter wr2("/home/hduser/Music/Untitled Folder/DM/2/zscore_output.csv");
+	CSVReader cr("/home/hduser/Music/Untitled Folder/DM/2/input.csv");				//read input.csv file
+	CSVWriter wr1("/home/hduser/Music/Untitled Folder/DM/2/min_max_output.csv");			//write data to min_max_output.csv file
+	CSVWriter wr2("/home/hduser/Music/Untitled Folder/DM/2/zscore_output.csv");			//write data to zscore_output.csv file
 	vector<vector<string> > ans1 = cr.getData();
 	vector<ll> v2;
 	for(vector<string>v:ans1){
