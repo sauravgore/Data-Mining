@@ -1,2 +1,2 @@
 # Data-Mining
-Some famous data mining algorithms
+Implementation of some famous data mining algorithms in c++
