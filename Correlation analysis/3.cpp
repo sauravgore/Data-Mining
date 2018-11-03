@@ -1,0 +1,79 @@
+
+//Correlation analysis
+
+#include<bits/stdc++.h>
+#include <boost/algorithm/string.hpp>
+#define ll long long
+#define ld long double
+#define pb push_back
+
+using namespace std;
+
+class CSVReader{
+	string _fn,_del;
+	public:
+		CSVReader(string _fn,string _del=","):_fn(_fn),_del(_del){}
+		vector<vector<string> > getData();
+};
+ 
+
+vector<vector<string> > CSVReader::getData(){
+	ifstream ip("/home/hduser/Music/Untitled Folder/DM/3/input.csv");
+	vector<vector<string> > dl;
+	string s = "";
+	while(getline(ip,s)){
+		vector<string> v;
+		boost::algorithm::split(v,s,boost::is_any_of(_del));
+		dl.pb(v);
+	}
+	ip.close();
+	return dl;
+}
+
+
+//Correlation analysis
+
+ld corr(vector <ll> v1,vector <ll> v2){
+	ll n = v1.size();
+	ll _smx = 0,_smy = 0,_smxx = 0,_smyy = 0,_smxy = 0;
+	for(int i = 0;i < n;i++){
+		_smx += v1[i];
+		_smxx += (v1[i]*v1[i]);
+		_smy += v2[i];
+		_smyy += (v2[i]*v2[i]);
+		_smxy += (v1[i]*v2[i]);
+	}
+	ld r = (ld)(n*_smxy-_smx*_smy)/sqrt((n*_smxx-_smx*_smx)*(n*_smyy-_smy*_smy)); 
+	return r;
+}
+
+
+int main(){
+	CSVReader cr("/home/hduser/Music/Untitled Folder/DM/3/input.csv");
+	vector<vector<string> > ans1 = cr.getData();
+	vector<ll> v1,v2;
+	ll f = 0,c = 0;
+	for(vector<string>v:ans1){
+		for(string d:v){
+			if(f==0 && c>1){
+				stringstream ss(d);
+				ll x = 0;
+				ss >> x;
+				v1.pb(x);
+				f = 1;
+			}
+			else if(f==1 && c>1){
+				stringstream ss(d);
+				ll x = 0;
+				ss >> x;
+				v2.pb(x);
+				f = 0;
+			}
+			++c;
+		}
+	}
+	ld res = corr(v1,v2);
+	cout << "Coefficient of correlation r = ";
+	cout << fixed << setprecision(4) << res << endl;	
+	return 0;
+}
