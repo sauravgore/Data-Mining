@@ -48,9 +48,9 @@ void reg_eq(vector <ll> v1,vector <ll> v2){
 	ld b = (ld)(n*_smxy-_smx*_smy)/(n*_smxx-_smx*_smx);
 	ld a = mny-b*mnx; 
 	if(a>0)
-		cout << fixed << setprecision(2) << b << "x + " << fixed << setprecision(2) << a << endl;
+		cout << fixed << setprecision(2) << b << "x" << fixed << setprecision(2) << "+" << a << endl;
 	else
-		cout << fixed << setprecision(2) << b << "x - " << fixed << setprecision(2) << a << endl;
+		cout << fixed << setprecision(2) << b << "x" << fixed << setprecision(2) << a << endl;
 }
 
 
