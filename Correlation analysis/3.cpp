@@ -2,10 +2,11 @@
 //Correlation analysis
 
 #include<bits/stdc++.h>
-#include <boost/algorithm/string.hpp>
+#include<boost/algorithm/string.hpp>
 #define ll long long
 #define ld long double
 #define pb push_back
+#define endl "\n"
 
 using namespace std;
 
